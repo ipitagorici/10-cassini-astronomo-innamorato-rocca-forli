@@ -1,0 +1,16 @@
+# VS Code setting folder 
+.vscode/
+
+# Manim export files
+media/
+
+# Temporary Python files
+__pycache__/
+
+# MacOS files
+.DS_Store
+
+.ruff_cache
+.venv
+
+exports/
