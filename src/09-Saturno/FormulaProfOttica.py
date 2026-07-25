@@ -3,11 +3,12 @@ from PIL import Image
 
 class FormulaProfOttica(Scene):
     def construct(self):
-        formula = MathTex(r"\log\tfrac{F_i}{F_t}",
+        formula = MathTex(r"\log \left( \frac{F_i}{F_t} \right)",
                           color=YELLOW,
                           font_size=200)
         
         bg = ImageMobject("src/assets/sfondoSpazio.jpg")
+        bg.set_opacity(.4)
         bg.set_resampling_algorithm(Image.Resampling.BICUBIC)
         bg.scale_to_fit_width(config.frame_width)
         self.add(bg)

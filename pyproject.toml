@@ -6,7 +6,16 @@ readme = "README.md"
 
 requires-python = ">=3.13"
 dependencies = [
-    "custom_mobjects"
+    "colorama>=0.4.6",
+    "custom-mobjects",
+    "manim>=0.19.2",
+    "ruff>=0.15.1",
+]
+
+[tool.uv.workspace]
+members = [
+    "custom-mobjects",
+    "custom_mobjects",
 ]
 
 [tool.uv.sources]

@@ -8,6 +8,7 @@ class vehementer(Scene):
                     font_size=90)
         
         bg = ImageMobject("src/assets/sfondoSpazio.jpg")
+        bg.set_opacity(.4)
         bg.set_resampling_algorithm(Image.Resampling.BICUBIC)
         bg.scale_to_fit_width(config.frame_width)
         self.add(bg)

@@ -14,12 +14,12 @@ class SeIlSarsi(Scene):
                     "e pur non si cuocono, anzi, se fusser calde, si raffreddano più presto;\\\\"+
                     "e perché non ci manca altro che l’esser di Babilonia,\\\\"+
                     "adunque l’esser Babilonie è la causa dell’indurirsi l’uova, e non l’attrizion dell’aria\"",
-                    color=YELLOW,
-                    font_size=35)
+                    color=YELLOW,).scale_to_fit_width(config.frame_width - 1).center()
 
         bg = ImageMobject("src/assets/sfondoSpazio.jpg")
         bg.set_resampling_algorithm(Image.Resampling.BICUBIC)
         bg.scale_to_fit_width(config.frame_width)
+        bg.set_opacity(.4)
         self.add(bg)
 
         self.play(Write(frase))

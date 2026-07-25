@@ -8,9 +8,8 @@ class Cassiniana(MovingCameraScene):
         ### TEX ###
         ###########
         
-        title = Tex("Cassiniana\\\\(Ovale di Cassini)").to_edge(UP)
+        title = Tex(r"\textsc{Cassiniana}\\(Ovale di Cassini)").to_edge(UP, buff=MED_LARGE_BUFF)
         lemniscate = Tex("Lemniscata\\\\di Bernoulli")
-
 
 
         ##############
@@ -20,7 +19,6 @@ class Cassiniana(MovingCameraScene):
         a = 1.5
         b_values = [1.1, 1.5, 1.9, a**2, 1.3*(a**2), 1.7*(a**2), 4.4, 5, 5.6] 
         colors = [RED, ORANGE, YELLOW, PURPLE, GREEN, BLUE, TEAL, PINK, MAROON, GRAY]
-
 
         
         ############
@@ -59,7 +57,7 @@ class Cassiniana(MovingCameraScene):
             self.play(Create(curve), run_time=1)
             
             if b == a**2:
-                lemniscate.next_to(curve, RIGHT)
+                lemniscate.next_to(curve, RIGHT, buff=MED_LARGE_BUFF)
                 
                 self.play(curve.animate.set_stroke(width=8), Flash(curve, flash_radius=2.4, num_lines=30), TransformFromCopy(curve, lemniscate))
                 self.wait(2)
@@ -68,7 +66,7 @@ class Cassiniana(MovingCameraScene):
         
         # ZOOMING CAMERA   
         
-        self.play(self.camera.frame.animate.set(width = cassiniana.width*1.5))
+        self.play(self.camera.frame.animate.set(width = cassiniana.width*1.5), FadeOut(title))
         
         
         # COOL STUFF

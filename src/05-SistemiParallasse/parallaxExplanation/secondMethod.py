@@ -1,6 +1,8 @@
 from manim import *
 class SecondMethod(Scene):
     def construct(self):
+
+        DOTS_RADIUSES = 0.20
         
         ##############
         ### LEGEND ###
@@ -10,10 +12,10 @@ class SecondMethod(Scene):
         legenda_observers = Tex("Osservatori", color=YELLOW)\
             .next_to(legenda_comet, DOWN)\
             .align_to(legenda_comet, RIGHT)
-        legenda_distance_EG = Tex("Distanza EG", color=GREEN)\
+        legenda_distance_EG = Tex(r"Distanza EG", color=GREEN)\
             .next_to(legenda_observers, DOWN)\
             .align_to(legenda_observers, RIGHT)
-        legenda_distance_EK = Tex("Distanza EK", color=BLUE)\
+        legenda_distance_EK = Tex(r"Distanza EK", color=BLUE)\
             .next_to(legenda_distance_EG, DOWN)\
             .align_to(legenda_observers, RIGHT)
         legenda_parallax_3 = Tex("Parallasse corretta", color=PINK)\
@@ -22,8 +24,6 @@ class SecondMethod(Scene):
             
         parallax_original = ImageMobject("src/assets/parallasse_metodo_2.jpg")\
             .scale(0.7)\
-        
-        
         
         #####################
         ### SCENE OBJECTS ###
@@ -50,16 +50,16 @@ class SecondMethod(Scene):
             arc_center=axes.get_origin()
         )
 
-        observer_point_B = Dot(observer_arc.get_end())\
+        observer_point_B = Dot(observer_arc.get_end(), radius=DOTS_RADIUSES)\
             .set_color(YELLOW)
-        observer_point_C = Dot(observer_arc.get_start())\
+        observer_point_C = Dot(observer_arc.get_start(), radius=DOTS_RADIUSES)\
             .shift(UP*0.5)\
             .shift(LEFT*0.15)\
             .set_color(YELLOW)
         
         
         # FIFTH FRAME
-        comet = Dot(color = RED)\
+        comet = Dot(color = RED, radius=DOTS_RADIUSES)\
             .move_to([bigger_arc.get_center()[0]-0.35, bigger_arc.get_center()[1]+1.2, 0])
         E = Star(outer_radius=0.1).set_color(WHITE)\
             .move_to([bigger_arc.get_end()[0]+0.5, bigger_arc.get_end()[1], 0])
@@ -123,8 +123,6 @@ class SecondMethod(Scene):
         CG = Line(observer_point_C,
             G.get_center())
         
-        
-        
         ##################
         ### ANIMATIONS ###
         ##################
@@ -135,16 +133,13 @@ class SecondMethod(Scene):
         
         self.play(parallax_original.animate.scale(0.4))
         self.play(parallax_original.animate.next_to(legenda_parallax_3, DOWN))
-
         
         # FIFTH FRAME
         self.play(Write(legenda_comet), Write(legenda_observers))
         self.play(FadeIn(axes, bigger_arc, smaller_arc, observer_arc, BG, E, K, CG, BK, comet, A_label, B_label, C_label, D_label, E_label, H_label, K_label, G_label, observer_point_B, observer_point_C))
         self.wait()
         
-        
         # COPYING
-        
         fifth_frame_exclusive_objects = VGroup(
             axes, bigger_arc, smaller_arc, observer_arc, observer_point_B, observer_point_C,
             BG, E, G, K, CG, BK, comet,

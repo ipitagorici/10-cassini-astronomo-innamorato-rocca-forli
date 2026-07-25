@@ -74,7 +74,7 @@ class ProfonditaOttica(MovingCameraScene):
         ### SONDA AND TRAJECTORY ###
         ############################
         
-        line = Line([0, 0, 0], [0, 1, 0])
+        line = Line((0, 0, 0), (0, 1, 0))
         rectangle = Rectangle(height=0.5, width=1.3, color=YELLOW)\
             .set_fill(opacity=0.5)\
             .move_to(line.get_center())\
