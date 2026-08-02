@@ -18,7 +18,7 @@ class FeelingGood(Scene):
         phrases = VGroup(
             VGroup(
                 Tex("Stars when you shine,\\\ you know how I feel", font_size=FONT_SIZE_ORIGINAL_TEXT, color=ORIGINAL_TEXT_CLR),
-                Tex("Stelle quando brillate,\\\ sai come mi sento", font_size=FONT_SIZE_TRANSLATED_TEXT, color=TRANSLATED_TEXT_CLR)
+                Tex("Stelle quando brillate,\\\ sapete come mi sento", font_size=FONT_SIZE_TRANSLATED_TEXT, color=TRANSLATED_TEXT_CLR)
             ).arrange_in_grid(rows=2, buff=ELEMENTS_DISTANCE),
             VGroup(
                 Tex("And this old world,\\\ is a new world", font_size=FONT_SIZE_ORIGINAL_TEXT, color=ORIGINAL_TEXT_CLR),
@@ -26,7 +26,7 @@ class FeelingGood(Scene):
             ).arrange_in_grid(rows=2, buff=ELEMENTS_DISTANCE),
             VGroup(
                 Tex(r"Oh, freedom is mine.\\And I know how I feel", font_size=FONT_SIZE_ORIGINAL_TEXT, color=ORIGINAL_TEXT_CLR),
-                Tex(r"La libertà è mia.\\E sai come mi sento", font_size=FONT_SIZE_TRANSLATED_TEXT, color=TRANSLATED_TEXT_CLR)
+                Tex(r"La libertà è mia.\\E so come mi sento", font_size=FONT_SIZE_TRANSLATED_TEXT, color=TRANSLATED_TEXT_CLR)
             ).arrange_in_grid(rows=2, buff=ELEMENTS_DISTANCE),
             VGroup(
                 Tex(r"It's a new \textbf{dawn}\\It's a new \textbf{day}\\It's a new \textbf{life}", font_size=FONT_SIZE_ORIGINAL_TEXT, color=ORIGINAL_TEXT_CLR),

@@ -1,6 +1,11 @@
 from manim import *
 from PIL import Image
 
+BACKGROUND_IMG = ImageMobject("src/assets/sfondoSpazio.jpg")
+BACKGROUND_IMG.set_resampling_algorithm(Image.Resampling.BICUBIC)
+BACKGROUND_IMG.scale_to_fit_width(config.frame_width)
+BACKGROUND_IMG.set_opacity(.4)
+
 class SeIlSarsi(Scene):
     def construct(self):
         frase = Tex("Se il Sarsi vuole ch’io creda che i Babilonii\\\\"+
@@ -16,27 +21,19 @@ class SeIlSarsi(Scene):
                     "adunque l’esser Babilonie è la causa dell’indurirsi l’uova, e non l’attrizion dell’aria\"",
                     color=YELLOW,).scale_to_fit_width(config.frame_width - 1).center()
 
-        bg = ImageMobject("src/assets/sfondoSpazio.jpg")
-        bg.set_resampling_algorithm(Image.Resampling.BICUBIC)
-        bg.scale_to_fit_width(config.frame_width)
-        bg.set_opacity(.4)
-        self.add(bg)
+        self.add(BACKGROUND_IMG)
 
         self.play(Write(frase))
 
 class HaecInsomni(Scene):
     def construct(self):
         fraseLatino = Tex("\"Haec insomni studio\\\\per gelidas noctes Coelitus deducta\" \\\\",
-                    color=YELLOW,
-                    font_size=60).shift(UP*1.5)
-        fraseItaliano = Tex("Queste cose tratte dal cielo\\\\con studio insonne nel gelo delle notti\\\\"+
-                            "(Cassini)",
-                    color=YELLOW,
-                    font_size=60).shift(DOWN*2)
+                    color=YELLOW).scale_to_fit_width(config.frame_width - 1)
+        fraseItaliano = Tex("Queste cose tratte dal cielo\\\\con studio insonne nel gelo delle notti\\\\",
+                    color=WHITE).scale_to_fit_width(config.frame_width - 2)
+        autore = Tex("(Cassini)", color=YELLOW).scale(1.3)
+        VGroup(fraseLatino, fraseItaliano, autore).arrange_in_grid(rows=3, buff=LARGE_BUFF)
+        autore.align_to(fraseItaliano, RIGHT)
+        self.add(BACKGROUND_IMG)
 
-        bg = ImageMobject("src/assets/sfondoSpazio.jpg")
-        bg.set_resampling_algorithm(Image.Resampling.BICUBIC)
-        bg.scale_to_fit_width(config.frame_width)
-        self.add(bg)
-
-        self.play(Write(fraseLatino), Write(fraseItaliano))
+        self.play(Write(fraseLatino), Write(fraseItaliano), Write(autore))
